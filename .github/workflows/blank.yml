@@ -45,13 +45,17 @@ jobs:
       - name: Verify kubeconfig
         run: kubectl get nodes
 
-      - name: Create Namespace
-        run: kubectl create ns vault
-
-      - name: change to namespace
-        run: kubens vault
+      - name: Check if Namespace Exists
+        id: check_namespace
+        run: |
+          if kubectl get namespace vault &> /dev/null; then
+            echo "::set-output name=exists::true"
+          else
+            echo "::set-output name=exists::false"
+          fi
 
       - name: Deploy vault
+        if: steps.check_namespace.outputs.exists == 'false'
         run: |
          helm repo add hashicorp https://helm.releases.hashicorp.com
-         helm install my-vault hashicorp/vault --version 0.27.0
+         helm install my-vault hashicorp/vault --version 0.27.0 -n vault
