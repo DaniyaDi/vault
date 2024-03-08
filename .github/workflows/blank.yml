@@ -40,7 +40,7 @@ jobs:
           sudo ./get_helm.sh
 
       - name: Update kubeconfig
-        run: aws eks --region us-east-1 update-kubeconfig --name education-eks-JPPpWVmA
+        run: aws eks --region us-east-1 update-kubeconfig --name education-eks-UBc9ZA6Z
 
       - name: Verify kubeconfig
         run: kubectl get nodes
@@ -52,6 +52,7 @@ jobs:
             echo "::set-output name=exists::true"
           else
             echo "::set-output name=exists::false"
+            kubectl create ns vault
           fi
 
       - name: Deploy vault
