@@ -13,5 +13,5 @@ ui:
   activeVaultPodOnly: true
   serviceType: "LoadBalancer"
   serviceNodePort: null
-  externalPort: 8200
+  externalPort: 80
   targetPort: 8201
