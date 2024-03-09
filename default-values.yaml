@@ -1031,8 +1031,8 @@ ui:
   activeVaultPodOnly: true
   serviceType: "LoadBalancer"
   serviceNodePort: null
-  externalPort: 8200
-  targetPort: 8200
+  externalPort: 80
+  targetPort: 80
 
   # The IP family and IP families options are to set the behaviour in a dual-stack environment.
   # Omitting these values will let the service fall back to whatever the CNI dictates the defaults
