@@ -1,3 +1,5 @@
+expose:
+  type: loadBalancer
 # Vault UI
 ui:
   # True if you want to create a Service entry for the Vault UI.
