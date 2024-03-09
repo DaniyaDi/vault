@@ -59,4 +59,4 @@ jobs:
         if: steps.check_namespace.outputs.exists == 'false'
         run: |
          helm repo add hashicorp https://helm.releases.hashicorp.com
-         helm install my-vault hashicorp/vault  -f ./default-values.yaml -f ./values.yaml -n vault
+         helm upgrade my-vault hashicorp/vault  -f ./default-values.yaml -f ./values.yaml -n vault
