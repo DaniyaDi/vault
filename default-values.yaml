@@ -1025,14 +1025,14 @@ ui:
   # serviceType can be used to control the type of service created. For
   # example, setting this to "LoadBalancer" will create an external load
   # balancer (for supported K8S installations) to access the UI.
-  enabled: true
+  enabled: false
   publishNotReadyAddresses: true
   # The service should only contain selectors for active Vault pod
-  activeVaultPodOnly: true
-  serviceType: "LoadBalancer"
+  activeVaultPodOnly: false
+  serviceType: "ClusterIp"
   serviceNodePort: null
-  externalPort: 80
-  targetPort: 80
+  externalPort: 8200
+  targetPort: 8200
 
   # The IP family and IP families options are to set the behaviour in a dual-stack environment.
   # Omitting these values will let the service fall back to whatever the CNI dictates the defaults
