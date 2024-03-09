@@ -40,7 +40,7 @@ jobs:
           sudo ./get_helm.sh
 
       - name: Update kubeconfig
-        run: aws eks --region us-east-1 update-kubeconfig --name education-eks-UBc9ZA6Z
+        run: aws eks --region us-east-1 update-kubeconfig --name education-eks-sr9xQLSX
 
       - name: Verify kubeconfig
         run: kubectl get nodes
@@ -59,4 +59,4 @@ jobs:
         if: steps.check_namespace.outputs.exists == 'false'
         run: |
          helm repo add hashicorp https://helm.releases.hashicorp.com
-         helm install my-vault hashicorp/vault --version 0.27.0 -n vault
+         helm install my-vault hashicorp/vault  -f ./default-values.yaml -f ./values.yaml -n vault
