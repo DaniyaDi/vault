@@ -1029,7 +1029,7 @@ ui:
   publishNotReadyAddresses: true
   # The service should only contain selectors for active Vault pod
   activeVaultPodOnly: false
-  serviceType: "ClusterIp"
+  serviceType: "ClusterIP"
   serviceNodePort: null
   externalPort: 8200
   targetPort: 8200
@@ -1307,4 +1307,3 @@ serverTelemetry:
       #    for: 5m
       #    labels:
       #      severity: critical
-
